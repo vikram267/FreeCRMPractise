@@ -15,6 +15,13 @@ public class HomePage extends TestBase{
 	@FindBy(xpath="//span[text()='Contacts']/parent::a")
 	WebElement contactmenu;
 	
+	@FindBy(xpath="//button[contains(@class,'ui vk basic icon button')]")
+	WebElement helpIcon;
+	
+	@FindBy(xpath="//button[contains(@aria-label,'Close')]")
+	WebElement closeHelpIcon;
+	
+	
 	public HomePage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -37,5 +44,13 @@ public class HomePage extends TestBase{
 	public String homePageTitle() {
 		return driver.getTitle();
 		
+	}
+	
+	public void helpIcon() throws Exception {
+		
+		helpIcon.click();
+		Thread.sleep(3000);
+		closeHelpIcon.click();
+		Thread.sleep(3000);
 	}
 }

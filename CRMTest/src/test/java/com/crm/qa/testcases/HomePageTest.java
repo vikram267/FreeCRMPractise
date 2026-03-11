@@ -54,6 +54,10 @@ public class HomePageTest extends TestBase {
 		Assert.assertTrue(homepage.verifyCorrectUserName());
 	}
 	
+	public void helpIconTest() throws Exception {
+		homepage.helpIcon();
+	}
+	
 
 	@AfterMethod
 	public void tearDown(ITestResult result) {
