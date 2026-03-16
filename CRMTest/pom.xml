@@ -49,7 +49,6 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
-            <scope>test</scope>
         </dependency>
 
         <!-- WebDriverManager -->
@@ -97,12 +96,6 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>${gson.version}</version>
-        </dependency>
-        
-        <dependency>
-        	<groupId>com.automation</groupId>
-        	<artifactId>ui-test</artifactId>
-        	<version>0.0.1-SNAPSHOT</version>
         </dependency>
         
           <dependency>
