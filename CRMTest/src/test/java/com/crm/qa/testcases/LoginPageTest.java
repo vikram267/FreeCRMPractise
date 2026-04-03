@@ -33,7 +33,7 @@ public void setup() {
 public void ValidateLoginTitleTest() {
 	
 	String title=loginpage.validateLoginPageTitle();
-	Assert.assertEquals(title, "#1 Free CRM Business Software - Free Forever");
+	Assert.assertEquals(driver.getTitle(), "Free CRM Easy Software Sales Customer Support Marketing");
 	
 	
 }

@@ -56,6 +56,8 @@ public class Task extends TestBase {
 	@FindBy(xpath="//div[@name='status' and @role='listbox']//div[@role='option']//span[@class='text']")
 	WebElement statusFieldInputs;
 	
+	@FindBy(xpath="//input[contains(@class,'calendarField react-datepicker')]")
+	WebElement dueDate;
 	@FindBy(xpath="//div[contains(@class,'current-month')]")
 	WebElement monthHeader;
 	@FindBy(xpath="//button[contains(@class,'navigation--previous')]")
@@ -64,18 +66,38 @@ public class Task extends TestBase {
 	List<WebElement> datacell;
 	@FindBy(xpath="//li[contains(@class,'time-list-item')]")
 	List<WebElement> timePick;
+	@FindBy(xpath="//input[@name='completion']")
+	WebElement completion;
+	@FindBy(xpath="//div[@name='company']")
+	WebElement comp;
+	@FindBy(xpath="//div[@name='status' and @role='listbox']")
+	WebElement statusDropDown;
+	@FindBy(xpath="//div[@name='status']/span")
+	List<WebElement> statuses;
+	@FindBy(xpath="//div[@name='type' and @role='listbox']")
+	WebElement typeMenu;
+	@FindBy(xpath="//div[@name='type']/span")
+	List<WebElement> typeDropDown;
+	@FindBy(xpath="//div[@name='contact']")
+	WebElement contactDropDown;
+	@FindBy(xpath="//textarea[@name='description']")
+	WebElement descriptionBox;
+	@FindBy(xpath="//div[@name='priority']")
+	List<WebElement> priorityDropDown;
+	@FindBy(xpath="//input[@name='identifier']")
+	WebElement identifierBox;
 	
 	
 	
 
-	
-	
 	public Task() {
 		PageFactory.initElements(driver, this);
 	}
 	
 	public void clickTaskMenu() {
-	    taskMenu.click();
+		
+		actions.moveToElement(taskMenu).click().perform();
+	    
 	}
 	
 	public String getTaskTitleText() {
@@ -103,10 +125,17 @@ public class Task extends TestBase {
 		}
 	}
 	
-	public void clickCreateMenu(String Title,String AssignedTo,String month_year,String day,String time,String Company,String Case,int Completion,String Status,String Type,String Contact,String Deal,String Description,String Pirority,String Identifier) {
+	public void clickCreateMenu(String Title,String AssignedTo,String month_year,String day,String time,String Company,int Completion,String Status,String Type,String Contact,String Description,String Pirority,String Identifier) {
 		createIcon.click();
 		titleField.sendKeys(Title);
 		assignedToField.sendKeys(AssignedTo);
+		completion.sendKeys(String.valueOf(Completion));
+		comp.sendKeys(Company);
+		contactDropDown.sendKeys(Contact);
+		descriptionBox.sendKeys(Description);
+		identifierBox.sendKeys(Identifier);
+		
+		dueDate.click();
 		while(!monthHeader.getText().equalsIgnoreCase(month_year)){
 			previousMonthHeader.click();
 		}
@@ -118,7 +147,26 @@ public class Task extends TestBase {
 			if(times.getText().equalsIgnoreCase(time)) {
 				times.click();
 			}}	
-	}
+		
+		statusDropDown.click();
+		for(WebElement sts:statuses) {
+			if(sts.getText().equalsIgnoreCase(Status)) {
+				sts.click();
+			}	}
+		
+		typeMenu.click();
+		for(WebElement types:typeDropDown) {
+			if(types.getText().equalsIgnoreCase(Type)) {
+				types.click();
+			}}
+		for(WebElement prior:priorityDropDown) {
+			if(prior.getText().equalsIgnoreCase(Pirority)) {
+				prior.click();
+			}	}
+			
+	
+		
+	
 
 
 	
@@ -126,4 +174,4 @@ public class Task extends TestBase {
 	
 	
 	
-}
+}}
