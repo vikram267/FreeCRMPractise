@@ -35,9 +35,8 @@ public class TaskPageTest  extends TestBase {
 		homepage = new HomePage();
 		contactpage = new ContactPage();
 		loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
-		homepage.contactmenu();
 		task = new Task();	
-		
+		task.clickTaskMenu();
 	}
 	
 	@Test(priority=0)
@@ -60,7 +59,7 @@ public class TaskPageTest  extends TestBase {
 	}
 	
 	@Test(priority=2,dataProvider="getTasktestData")
-	public void TaskCreationMenu(String Title,String AssignedTo,String month_year,String day,String time,String Company,int Completion,String Status,String Type,String Contact,String Description,String Pirority,String Identifier) {
+	public void TaskCreationMenu(String Title,String AssignedTo,String month_year,String day,String time,String Company,String Completion,String Status,String Type,String Contact,String Description,String Pirority,String Identifier) {
 		task.clickCreateMenu(Title, AssignedTo, month_year, day, time, Company, Completion, Status, Type, Contact, Description, Pirority, Identifier);
 	}
 	

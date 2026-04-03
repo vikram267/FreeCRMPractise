@@ -26,8 +26,8 @@ public class TestUtil extends TestBase {
 	public static final Duration WEBDRIVER_WAIT = Duration.ofSeconds(10);
 	static Workbook book;
 	static Sheet sheet;
-	public static  String TESTDATA_SHEET_PATH ="C:\\Users\\admin\\eclipse-workspace\\CRMTest\\"
-			+ "src\\main\\java\\com\\crm\\qa\\testdata\\TestData.xlsx";
+	public static  String TESTDATA_SHEET_PATH =System.getProperty("user.dir") +
+			"/src/main/java/com/crm/qa/testdata/TestData.xlsx";
 	
 	
 	public void switchToFrame() {

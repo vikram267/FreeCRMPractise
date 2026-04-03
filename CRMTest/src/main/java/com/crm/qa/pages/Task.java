@@ -41,7 +41,7 @@ public class Task extends TestBase {
 	@FindBy(xpath="//i[@class=\"save icon\"]")
 	WebElement savebtn;
 	
-	@FindBy(xpath="//input[@name=\"title\"]")
+	@FindBy(xpath="//input[@name='title']")
 	WebElement titleField;
 		
 	@FindBy(xpath="//*[contains(normalize-space(),'Assigned To')]//div[contains(@class,'fluid selection dropdown')]")
@@ -86,7 +86,8 @@ public class Task extends TestBase {
 	List<WebElement> priorityDropDown;
 	@FindBy(xpath="//input[@name='identifier']")
 	WebElement identifierBox;
-	
+	@FindBy(xpath="//button[contains(@class,'linkedin')]/descendant::i[@class='save icon']")
+	WebElement saveBtn;
 	
 	
 
@@ -125,7 +126,7 @@ public class Task extends TestBase {
 		}
 	}
 	
-	public void clickCreateMenu(String Title,String AssignedTo,String month_year,String day,String time,String Company,int Completion,String Status,String Type,String Contact,String Description,String Pirority,String Identifier) {
+	public void clickCreateMenu(String Title,String AssignedTo,String month_year,String day,String time,String Company,String Completion,String Status,String Type,String Contact,String Description,String Pirority,String Identifier) {
 		createIcon.click();
 		titleField.sendKeys(Title);
 		assignedToField.sendKeys(AssignedTo);
@@ -134,6 +135,7 @@ public class Task extends TestBase {
 		contactDropDown.sendKeys(Contact);
 		descriptionBox.sendKeys(Description);
 		identifierBox.sendKeys(Identifier);
+		
 		
 		dueDate.click();
 		while(!monthHeader.getText().equalsIgnoreCase(month_year)){
@@ -164,7 +166,8 @@ public class Task extends TestBase {
 				prior.click();
 			}	}
 			
-	
+		saveBtn.click();
+		System.out.println("Task created successfully");
 		
 	
 
